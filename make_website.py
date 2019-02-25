@@ -13,7 +13,7 @@ def read_file(file):
 
 
 def extract_name(lines_lst):
-    '''Extract the name from the content list'''
+    '''Extract the name from the content list and return as string'''
 
     # Extract the first line, remove the leading and trailing spaces and removing the \n
     name = lines_lst[0].strip()
@@ -26,7 +26,7 @@ def extract_name(lines_lst):
 
 
 def extract_email(lines_lst):
-    '''Extract the email from the content list'''
+    '''Extract the email from the content list and return as string'''
 
     # create empty variable
     email = ""
@@ -47,19 +47,18 @@ def extract_email(lines_lst):
     return email
 
 
-
 def extract_courses(lines_lst):
-    '''Extract the courses from the content list'''
+    '''Extract the courses from the content list and return as string'''
 
     # create empty variable
     courses = ""
 
-    # read each line and see if courses can be found
+    # read each line and see if "Courses" can be found
     for line in lines_lst:
         # remove the leading and trailing spaces and removing the \n
         line_strip = line.strip()
 
-        # find the line of courses in case "Courses"
+        # find the line of courses
         index = line_strip.find("Courses")
         if index != -1:
             # get the substring of the string after "Courses".
@@ -79,6 +78,26 @@ def extract_courses(lines_lst):
     return courses
 
 
+def extract_projects(lines_lst):
+    '''Extract the projects from the content list and return as list'''
+
+    # create empty list
+    projects = []
+
+    # read each line and see if "Projects" can be found
+    i = -1
+    for line in lines_lst:
+        i = i+1
+        index = line.find("Projects")
+        if index != -1:
+            for project in lines_lst[i+1:]:
+                if project.find("----------") != -1:
+                    projects.append(project)
+            break
+
+    return projects
+
+
 def main():
     lines_lst = read_file("resume.txt")
     print(lines_lst)
@@ -91,6 +110,9 @@ def main():
 
     courses = extract_courses(lines_lst)
     print(courses)
+
+    projects = extract_projects(lines_lst)
+    print(projects)
 
     # print("123.".isdigit())
     # print("@.".isalpha())
