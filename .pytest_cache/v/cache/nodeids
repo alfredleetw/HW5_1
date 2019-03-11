@@ -1,0 +1,12 @@
+[
+  "make_website_test.py::Make_Website_Test::test_create_email_link",
+  "make_website_test.py::Make_Website_Test::test_create_resume_course",
+  "make_website_test.py::Make_Website_Test::test_create_resume_intro",
+  "make_website_test.py::Make_Website_Test::test_create_resume_project",
+  "make_website_test.py::Make_Website_Test::test_extract_courses",
+  "make_website_test.py::Make_Website_Test::test_extract_email",
+  "make_website_test.py::Make_Website_Test::test_extract_name",
+  "make_website_test.py::Make_Website_Test::test_extract_projects",
+  "make_website_test.py::Make_Website_Test::test_read_file",
+  "make_website_test.py::Make_Website_Test::test_surround_block"
+]
